@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Models.Entity.egitimler
+@{
+    ViewBag.Title = "EgitimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4>Yeni Eğitim Ekleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.baslik, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.baslik, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Alt Başlık 1")
+    @Html.TextBoxFor(x => x.altBaslik1, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.altBaslik1, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Alt Başlık 2")
+    @Html.TextBoxFor(x => x.altBaslik2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.tarih, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.tarih, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("GNO")
+    @Html.TextBoxFor(x => x.gno, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.gno, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

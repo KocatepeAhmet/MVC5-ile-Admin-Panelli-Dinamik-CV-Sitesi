@@ -1,0 +1,31 @@
+﻿<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<div class="resume-section-content">
+    <form method="post" id="iletisimForm">
+        <h2 class="mb-5">İLETİŞİM</h2>
+        <label>Ad Soyad</label>
+        <input type="text" class="form-control" name="adSoyad" />
+        <br />
+
+        <label>Mail Adresi</label>
+        <input type="text" class="form-control" name="mail" />
+        <br />
+
+        <label>Konu</label>
+        <input type="text" class="form-control" name="konu" />
+        <br />
+
+        <label>Mesaj</label>
+        <textarea class="form-control" name="mesaj" rows="5"></textarea>
+        <br />
+        <button class="btn btn-info" id="mesajGonderBtn">Mesaj Gönder</button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#mesajGonderBtn').click(function () {
+            alert('Mesajınız iletildi!');
+        });
+    });
+</script>

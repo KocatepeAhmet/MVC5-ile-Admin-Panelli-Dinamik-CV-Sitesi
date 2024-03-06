@@ -1,0 +1,39 @@
+﻿@using WebApplication1.Models.Entity
+@model List<hakkimda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hakkımda Düzenleme Sayfası</h2>
+<br />
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>Ad</label>
+        <input type="text" name="ad" value="@item.ad" class="form-control" />
+        <br />
+        <label>Soyad</label>
+        <input type="text" name="soyad" value="@item.soyad" class="form-control" />
+        <br />
+        <label>Adres</label>
+        <input type="text" name="adres" value="@item.adres" class="form-control" />
+        <br />
+        <label>Telefon</label>
+        <input type="text" name="telefon" value="@item.telefon" class="form-control" />
+        <br />
+        <label>Mail</label>
+        <input type="text" name="mail" value="@item.mail" class="form-control" />
+        <br />
+        <label>Açıklama</label>
+<textarea rows="3" class="form-control" name="aciklama"> @item.aciklama</textarea>
+        <br />
+        <label>Resim</label>
+        <input type="text" name="resim" value="@item.resim" class="form-control" />
+    }
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+

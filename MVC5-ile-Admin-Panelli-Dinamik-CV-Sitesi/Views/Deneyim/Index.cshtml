@@ -1,0 +1,43 @@
+﻿@using WebApplication1.Models.Entity
+@model List<deneyimler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Deneyim Listesi</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.baslik</td>
+            <td>@item.altBaslik</td>
+            <td>@item.tarih</td>
+            <td>
+                <a href="/deneyim/DeneyimSil/@item.id" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                    Sil
+                </a>
+            </td>
+            <td>
+                <a href="/deneyim/DeneyimGetir/@item.id" class="btn btn-info">
+                    <i class="fas fa-pencil-alt"></i>
+                    Düzenle
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/deneyim/DeneyimEkle/" class="btn btn-info">Yeni Deneyim Ekle</a>

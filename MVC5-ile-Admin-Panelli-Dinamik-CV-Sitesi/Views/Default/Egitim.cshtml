@@ -1,0 +1,21 @@
+﻿@using WebApplication1.Models.Entity
+@model List<egitimler>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">EĞİTİM HAYATIM</h2>
+    @foreach (var item in Model)
+    {
+
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="flex-grow-1">
+            <h3 class="mb-0">@item.baslik</h3>
+            <div class="subheading mb-3">@item.altBaslik1</div>
+            <div>@item.altBaslik2</div>
+            <p>GNO: @item.gno</p>
+        <hr />
+        </div>
+        <div class="flex-shrink-0"><span class="text-primary"><b>@item.tarih</b></span></div>
+    </div>
+    }
+</div>

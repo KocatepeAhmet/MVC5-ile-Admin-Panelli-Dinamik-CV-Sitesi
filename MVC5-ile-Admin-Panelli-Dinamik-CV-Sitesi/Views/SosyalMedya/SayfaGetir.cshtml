@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.Entity.sosyalMedya
+
+@{
+    ViewBag.Title = "SayfaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h4>Sosyal Medya Hesap Düzenleme Sayfası</h4>
+<br />
+<form method="post">
+    @Html.Label("Sosyal Medya Adı")
+    @Html.TextBoxFor(x => x.ad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Link")
+    @Html.TextBoxFor(x => x.link, new { @class = "form-control" })
+    <br />
+    @Html.Label("İkon")
+    @Html.TextBoxFor(x => x.icon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

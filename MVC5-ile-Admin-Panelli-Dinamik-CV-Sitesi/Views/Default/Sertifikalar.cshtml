@@ -1,0 +1,24 @@
+﻿@using WebApplication1.Models.Entity
+@model List<sertifikalar>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">SERTİFİKALARIM</h2>
+    @foreach (var item in Model)
+    {
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+        <div class="flex-grow-1">
+            <ul class="fa-ul mb-0">
+                <br />
+                <li>
+                    <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                    @item.aciklama
+                </li>
+            </ul>
+            <hr />
+        </div>
+        <div class="flex-shrink-0"><span class="text-primary"><b>@item.tarih</b></span></div>
+    </div>
+     }
+</div>
+

@@ -1,0 +1,10 @@
+﻿@using WebApplication1.Models.Entity
+@model List<hobiler>
+<div class="resume-section-content">
+    <h2 class="mb-5">BLOG SAYFASI</h2>
+    @foreach (var item in Model)
+    {
+        <p>@item.aciklama1</p>
+        <p class="mb-0">@item.aciklama2</p>
+    }
+</div>

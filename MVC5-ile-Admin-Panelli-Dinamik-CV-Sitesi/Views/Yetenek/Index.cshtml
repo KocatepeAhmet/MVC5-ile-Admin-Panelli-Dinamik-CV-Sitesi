@@ -1,0 +1,106 @@
+﻿@using WebApplication1.Models.Entity
+@model List<yetenekler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{ string renk = "";}
+@{ string labelrenk = "";}
+
+<br />
+<h2>Yetenek Listesi</h2>
+<br />
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listesi</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Yetenek/YeniYetenek/" class="btn btn-info">Yeni Yetenek Ekle</a>
+                                <br />
+                                <br />
+                                <table class="table tablSe-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.oran >= 0 && item.oran <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                labelrenk = "badge bg-danger";
+                                            }
+                                            if (item.oran >= 51 && item.oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                labelrenk = "badge bg-warning";
+                                            }
+                                            if (item.oran >= 71 && item.oran <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                labelrenk = "badge bg-primary";
+                                            }
+                                            if (item.oran >= 85 && item.oran <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                                labelrenk = "badge bg-success";
+                                            }
+                                            <tr>
+                                                <td>@item.id.</td>
+                                                <td>@item.yetenek</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @item.oran%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@labelrenk">@item.oran%</span></td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm" href="/Yetenek/YetenekDüzenle/@item.id">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm" href="/Yetenek/YetenekSil/@item.id">
+                                                        <i class="fas fa-trash"></i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
+
+

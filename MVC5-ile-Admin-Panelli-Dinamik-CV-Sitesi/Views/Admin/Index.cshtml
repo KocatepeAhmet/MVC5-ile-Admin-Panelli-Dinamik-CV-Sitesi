@@ -1,0 +1,42 @@
+﻿@using WebApplication1.Models.Entity
+@model List<admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Admin İşlemleri</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>Kullanıcı Adı</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.kullaniciAdi</td>
+            <td>
+                <a href="/Admin/AdminDuzenle/@item.id" class="btn btn-warning">
+                    <i class="fas fa-pencil-alt"></i>
+                    Düzenle
+                </a>
+            </td>
+            <td>
+                <a href="/Admin/AdminSil/@item.id" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                    Sil
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Admin/AdminEkle/" class="btn btn-info">Yeni Kullanıcı Ekle</a>
+
+

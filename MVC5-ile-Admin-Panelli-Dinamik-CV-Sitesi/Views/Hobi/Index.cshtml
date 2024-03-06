@@ -1,0 +1,25 @@
+﻿@using WebApplication1.Models.Entity
+@model List<hobiler>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Hobi Düzenleme Sayfası</h2>
+<br />
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>Açıklama 1</label>
+<textarea rows="3" class="form-control" name="aciklama1"> @item.aciklama1</textarea>
+
+        <label>Açıklama 2</label>
+<textarea rows="3" class="form-control" name="aciklama2"> @item.aciklama2</textarea>
+    }
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+
